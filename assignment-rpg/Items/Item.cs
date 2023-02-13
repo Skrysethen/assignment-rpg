@@ -24,6 +24,7 @@ namespace assignment_rpg.Items
         public abstract WeponType GetWeponType();
         public abstract ArmorType GetArmorType();
         public abstract HeroAttribute GetArmorAttribute();
+        public abstract int GetWeaponDamage();
 
         
 

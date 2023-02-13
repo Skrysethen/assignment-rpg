@@ -1,5 +1,6 @@
 using assignment_rpg.Heroes;
 using assignment_rpg.Items;
+using System.Data.Common;
 using Xunit;
 
 namespace AssignmentRpgTest
@@ -121,6 +122,32 @@ namespace AssignmentRpgTest
             //Assert
             Assert.Equal(expected, actual);
 
+        }
+        [Fact]
+        public void TestCalculateDamage_NoWeaponEquipped_ShouldReturnOne()
+        {
+            //Arrange
+            MageHero newHero = new MageHero("Gandalf");
+            double expected = 1;
+            //Act
+            double actual = newHero.Damage();
+            //Assert
+            Assert.Equal(expected,actual);
+        }
+        [Fact]
+        public void TestCalculateDamageMage_WeaponEquipped_ShouldReturnOnePointOne()
+        {
+            //Arrange
+            MageHero newHero = new MageHero("Gandalf");
+            WeaponItem epicStaff = new WeaponItem("Staff of Jordan", 1, Slot.Weapon, WeponType.Staff, 1);
+            double expected = 1;
+            //Act
+            newHero.Equip(epicStaff);
+            double actual = newHero.Damage();
+
+            //Assert
+            Assert.Equal(expected, actual);
+            
         }
     }
 }

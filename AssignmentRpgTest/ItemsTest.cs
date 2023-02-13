@@ -45,8 +45,19 @@ namespace AssignmentRpgTest
             string actual = newHero.Equipment[Slot.Body].Name;
             //Assert
             Assert.Equal(expected, actual);
-            
         }
+
+        [Fact]
+        public void TestEquipWeaponMage_ShouldReturnNameOfWeaponInHeroObject()
+        {
+            MageHero newHero = new MageHero("Gandalf");
+            WeaponItem simpleStaff = new WeaponItem("Stick", 1, Slot.Weapon, WeponType.Staff, 1);
+            string expected = "Stick";
+            newHero.Equip(simpleStaff);
+            string actual = newHero.Equipment[Slot.Weapon].Name;
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]
         public void TestEquipWeapon_ShouldReturnNameOfWeaponInHeroObject()
         {

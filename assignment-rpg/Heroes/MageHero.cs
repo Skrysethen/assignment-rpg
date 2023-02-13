@@ -30,5 +30,20 @@ namespace assignment_rpg.Heroes
 
         }
 
+        public override double Damage()
+        {
+            CalculateTotalAttributes();
+            Item weapon = Equipment[Slot.Weapon];
+            if (weapon.Name != null)
+            {
+                int weaponDamage = weapon.GetWeaponDamage();
+                this.Dps = weaponDamage * (1 + (this.TotalAttributes.Intelligence / 100));
+            }
+            else
+            {
+                this.Dps = 1;
+            }
+            return this.Dps;
+        }
     }
 }

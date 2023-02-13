@@ -33,6 +33,10 @@ namespace assignment_rpg.Items
         {
             throw new NotImplementedException();
         }
+        public override int GetWeaponDamage()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

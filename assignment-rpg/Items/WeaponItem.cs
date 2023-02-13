@@ -23,6 +23,10 @@ namespace assignment_rpg.Items
         {
             return WeponClass;
         }
+        public override int GetWeaponDamage()
+        {
+            return WeaponDamage;
+        }
         public override ArmorType GetArmorType()
         {
             throw new NotImplementedException();
