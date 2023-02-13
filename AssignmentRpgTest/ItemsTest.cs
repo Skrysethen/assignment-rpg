@@ -1,12 +1,13 @@
 ﻿using assignment_rpg.Heroes;
 using assignment_rpg.Items;
+using Xunit.Sdk;
 
 namespace AssignmentRpgTest
 {
     public class ItemsTest
     {
         [Fact]
-        public void CreateWeaponItem_ShouldReturnName() 
+        public void TestCreateWeaponItem_ShouldReturnName() 
         {
             //Arrange
             WeaponItem simpleAxe = new WeaponItem("Axe", 1, Slot.Weapon, WeponType.Axe, 1);
@@ -18,7 +19,7 @@ namespace AssignmentRpgTest
             
         }
         [Fact]
-        public void CreateArmorItem_ShouldReturnName()
+        public void TestCreateArmorItem_ShouldReturnName()
         {
             //Arrange
             HeroAttribute bandanaModifiers = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 1 };
@@ -26,6 +27,36 @@ namespace AssignmentRpgTest
             string expected = "Bandana";
             //Act 
             string actual = simpleArmor.Name;
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void TestEquipArmor_ShouldReturnNameOfArmorInHeroObject()
+        {
+            //Arrange
+            MageHero newHero = new MageHero("Gandalf");
+            HeroAttribute robeModifiers = new HeroAttribute { Str = 0, Dex = 0, Intelligence = 2 };
+            ArmorItem simpleRobe = new ArmorItem("Gray Robe", 1, Slot.Body, ArmorType.Cloth, robeModifiers);
+            string expected = "Gray Robe";
+            //Act
+            newHero.Equip(simpleRobe);
+            //In the test we know this value is not zero
+            string actual = newHero.Equipment[Slot.Body].Name;
+            //Assert
+            Assert.Equal(expected, actual);
+            
+        }
+        [Fact]
+        public void TestEquipWeapon_ShouldReturnNameOfWeaponInHeroObject()
+        {
+            //Arrange 
+            WarriorHero newHero = new WarriorHero("Aragorn");
+            HeroAttribute swordModifier = new HeroAttribute { Str = 2, Dex = 1, Intelligence = 0 };
+            WeaponItem simpleSword = new WeaponItem("Grief", 1, Slot.Weapon, WeponType.Sword, 2);
+            string expected = "Grief";
+            //Act 
+            newHero.Equip(simpleSword);
+            string actual = newHero.Equipment[Slot.Weapon].Name; 
             //Assert
             Assert.Equal(expected, actual);
         }
