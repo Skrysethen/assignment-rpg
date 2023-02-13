@@ -18,5 +18,6 @@ namespace assignment_rpg.Heroes
         public Hero(string name) {
             Name = name;
         }
+
     }
 }
