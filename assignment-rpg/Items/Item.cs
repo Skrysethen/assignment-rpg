@@ -1,4 +1,5 @@
-﻿using System;
+﻿using assignment_rpg.Heroes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -22,6 +23,7 @@ namespace assignment_rpg.Items
 
         public abstract WeponType GetWeponType();
         public abstract ArmorType GetArmorType();
+        public abstract HeroAttribute GetArmorAttribute();
 
         
 

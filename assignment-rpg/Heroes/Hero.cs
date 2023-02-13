@@ -14,7 +14,7 @@ namespace assignment_rpg.Heroes
         public string Name { get; set; } = string.Empty;
         public int Level { get; set; } = 1;
         public HeroAttribute? LevelAttributes { get; set; }
-        //Dictonary to make TKey and TValue for equipment
+        public HeroAttribute? TotalAttributes { get; set; } = new HeroAttribute { Str = 0, Dex= 0, Intelligence = 0 };
         public Dictionary<Slot, Item?> Equipment { get; set; } = new Dictionary<Slot, Item?>();
         public List<string> ValidWeponTypes { get; set; } = new List<string>();
         public List<string> ValidArmorTypes { get; set; } = new List<string>();
@@ -62,17 +62,27 @@ namespace assignment_rpg.Heroes
                 }
 
             } else {
-                //Trow expetion, this item cant be used, no slot 
-                
-
+                //Trow expetion, this item cant be used, no valid slot      
+                //Make a new exeption for this occurence
             }
-
-            
-
-        
-            
 
         }
 
+        public void CalculateTotalAttributes()
+        {
+            this.TotalAttributes = this.LevelAttributes;
+            foreach (var item in Equipment)
+            {
+                if(item.Key != Slot.Weapon) { 
+                    if(item.Value != null)
+                    {
+                        HeroAttribute rhs = item.Value.GetArmorAttribute();
+                        this.TotalAttributes +=  rhs; 
+                    }
+                }
+            }
+        }
+
+        public abstract double Damage();
     }
 }

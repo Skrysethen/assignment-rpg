@@ -1,4 +1,5 @@
-﻿using System;
+﻿using assignment_rpg.Heroes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -23,6 +24,10 @@ namespace assignment_rpg.Items
             return WeponClass;
         }
         public override ArmorType GetArmorType()
+        {
+            throw new NotImplementedException();
+        }
+        public override HeroAttribute GetArmorAttribute()
         {
             throw new NotImplementedException();
         }

@@ -24,6 +24,11 @@ namespace assignment_rpg.Items
             return ArmorClass;
         }
 
+        public override HeroAttribute GetArmorAttribute()
+        {
+            return ArmorAttribute;
+        }
+
         public override WeponType GetWeponType()
         {
             throw new NotImplementedException();

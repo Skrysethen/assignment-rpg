@@ -1,4 +1,6 @@
 using assignment_rpg.Heroes;
+using assignment_rpg.Items;
+using Xunit;
 
 namespace AssignmentRpgTest
 {
@@ -24,7 +26,6 @@ namespace AssignmentRpgTest
             newHero.RogueLevelUp(attribute);
             int actual = newHero.Level;
             Assert.Equal(expected, actual);
-
         }
 
         [Fact]
@@ -85,13 +86,40 @@ namespace AssignmentRpgTest
         }
 
         [Fact]
-        public void TestReturnAttributes_ArmorAttributesAddedWithOnePiceOfArmor_ShouldReturnIncreaseByOne()
+        public void TestReturnAttributes_ArmorAttributesAddedWithOnePiceOfArmor_ShouldReturnDexIncreaseByOne()
         {
+            //Arrange
+            RangerHero newHero = new RangerHero("Legolas");
+            HeroAttribute armorAttributes = new HeroAttribute { Str = 0, Dex = 1, Intelligence = 0 };
+            ArmorItem topHat = new ArmorItem("Top Hat", 1, Slot.Head, ArmorType.Leather, armorAttributes);
+            HeroAttribute expected = new HeroAttribute { Str = 1, Dex = 8, Intelligence = 1 };
+
+            //Act
+            newHero.Equip(topHat);
+            newHero.CalculateTotalAttributes();
+            HeroAttribute actual = newHero.TotalAttributes;
+            //Assert
+            Assert.Equal(expected, actual);
 
         }
         [Fact]
         public void TestReturnAttributes_ArmorAttributesAddedWithTwoPiceOfArmor_ShouldReturnIncreaseByTwo()
         {
+            //Arrange
+            WarriorHero newHero = new WarriorHero("Conan");
+            //Two items that gives a combined of 2str and 1 dex for a warrior at lvl 1 
+            HeroAttribute hatAttribute = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 0 };
+            HeroAttribute vodyAttribute = new HeroAttribute { Str = 1, Dex = 0, Intelligence = 0 };
+            ArmorItem plateHelm = new ArmorItem("Knights helm", 1, Slot.Head, ArmorType.Plate, hatAttribute);
+            ArmorItem mailBody = new ArmorItem("Ragged Chainmail",1, Slot.Body, ArmorType.Mail, vodyAttribute);
+            HeroAttribute expected = new HeroAttribute { Str = 7, Dex = 3, Intelligence = 1 };
+            //Act
+            newHero.Equip(plateHelm);
+            newHero.Equip(mailBody);
+            newHero.CalculateTotalAttributes();
+            HeroAttribute actual = newHero.TotalAttributes;
+            //Assert
+            Assert.Equal(expected, actual);
 
         }
     }
