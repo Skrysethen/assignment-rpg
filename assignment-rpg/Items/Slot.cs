@@ -8,9 +8,9 @@ namespace assignment_rpg.Items
 {
     public enum Slot
     {
-        WEPON,
-        HEAD,
-        BODY,
-        LEGS
+        Weapon,
+        Head,
+        Body,
+        Legs
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
-    enum WeponType
+    public enum WeponType
     {
         Staff,
         Wand,

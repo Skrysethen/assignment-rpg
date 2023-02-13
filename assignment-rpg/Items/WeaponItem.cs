@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
-    internal class WeaponItem : Item
+    public class WeaponItem : Item
     {
         public int WeaponDamage { get; set; }
         public WeponType WeponClass { get; set; }

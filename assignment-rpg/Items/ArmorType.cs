@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
-    enum ArmorType
+    public enum ArmorType
     {
         Cloth,
         Leather,
