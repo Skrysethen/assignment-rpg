@@ -9,6 +9,7 @@ namespace assignment_rpg.Items
 {
     public class WeaponItem : Item
     {
+
         public int WeaponDamage { get; set; }
         public WeponType WeponClass { get; set; }
 
@@ -16,6 +17,14 @@ namespace assignment_rpg.Items
         {
             WeaponDamage = weaponDamage;
             WeponClass = weponClass;
+        }
+        public override WeponType GetWeponType()
+        {
+            return WeponClass;
+        }
+        public override ArmorType GetArmorType()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -19,5 +19,15 @@ namespace assignment_rpg.Items
             ArmorAttribute = armorAttribute;
         }
 
+        public override ArmorType GetArmorType()
+        {
+            return ArmorClass;
+        }
+
+        public override WeponType GetWeponType()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

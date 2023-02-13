@@ -19,6 +19,12 @@ namespace assignment_rpg.Items
             ReqLevel = reqLevel;
             SlotType = slotType;
         }
+
+        public abstract WeponType GetWeponType();
+        public abstract ArmorType GetArmorType();
+
+        
+
     }
 
 

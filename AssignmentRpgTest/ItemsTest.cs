@@ -1,5 +1,6 @@
 ﻿using assignment_rpg.Heroes;
 using assignment_rpg.Items;
+using assignment_rpg.Utilities;
 using Xunit.Sdk;
 
 namespace AssignmentRpgTest
@@ -51,7 +52,6 @@ namespace AssignmentRpgTest
         {
             //Arrange 
             WarriorHero newHero = new WarriorHero("Aragorn");
-            HeroAttribute swordModifier = new HeroAttribute { Str = 2, Dex = 1, Intelligence = 0 };
             WeaponItem simpleSword = new WeaponItem("Grief", 1, Slot.Weapon, WeponType.Sword, 2);
             string expected = "Grief";
             //Act 
@@ -59,6 +59,30 @@ namespace AssignmentRpgTest
             string actual = newHero.Equipment[Slot.Weapon].Name; 
             //Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TestEquipWeapon_WeaponWithHigherLvlRequirement_ShouldThrowInvalidWeaponExeption()
+        {
+            //Arrange
+            RangerHero newHero = new RangerHero("Legolas");
+            HeroAttribute bowModifier = new HeroAttribute { Str = 0, Dex = 3, Intelligence = 0 };
+            WeaponItem simpleBow = new WeaponItem("Faith", 2, Slot.Weapon, WeponType.Bow, 5);
+            
+            //Act & Assert
+            Assert.Throws<InvalidWeaponExeption>(() => newHero.Equip(simpleBow));
+            
+        }
+        [Fact]
+        public void TestEquipArmor_InvalidArmorTypeForClass_ShouldThrowInvalidArmorExeption()
+        {
+            //Arrange
+            RogueHero newHero = new RogueHero("Bilbo");
+            HeroAttribute plateLegsModifier = new HeroAttribute { Str = 0, Dex = 7, Intelligence = 0 };
+            ArmorItem plateLegs = new ArmorItem("Fancy Legs", 1, Slot.Legs, ArmorType.Plate, plateLegsModifier);
+
+            //Act & Assert
+            Assert.Throws<InvalidArmorExeption>(() => newHero.Equip(plateLegs));
         }
     }
 }
