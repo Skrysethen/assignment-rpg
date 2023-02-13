@@ -23,7 +23,8 @@ namespace assignment_rpg.Heroes
         public void WarriorLevelUp(HeroAttribute oldAttributes)
         {
             HeroAttribute newAttributes = new HeroAttribute { Str = 3, Dex = 2, Intelligence = 1};
-            HeroAttribute addAttributes = oldAttributes + newAttributes; 
+            HeroAttribute addAttributes = oldAttributes + newAttributes;
+            this.Level++;
             this.LevelAttributes = addAttributes;
             
         }

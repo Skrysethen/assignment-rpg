@@ -22,6 +22,7 @@ namespace assignment_rpg.Heroes
         {
             HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 4, Intelligence = 1 };
             HeroAttribute addAttribute = oldAttribute + newAttribute;
+            this.Level++;
             this.LevelAttributes = addAttribute;
 
 

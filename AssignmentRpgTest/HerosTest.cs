@@ -15,6 +15,17 @@ namespace AssignmentRpgTest
             //Assert
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void TestReturnLevel_HeroLevelUp_ShouldIncrementLevelByOne()
+        {
+            RogueHero newHero = new RogueHero("Bilbo");
+            HeroAttribute attribute = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 1};
+            int expected = 2;
+            newHero.RogueLevelUp(attribute);
+            int actual = newHero.Level;
+            Assert.Equal(expected, actual);
+
+        }
 
         [Fact]
         public void TestReturnAttributes_MageLevelUp_ShouldReturnIntelligenceIncreasedByFiveRestByOne()
@@ -28,8 +39,6 @@ namespace AssignmentRpgTest
             HeroAttribute actual = newHero.LevelAttributes;
             //Assert
             Assert.Equal(expected, actual);
-            
-
         }
         [Fact]
         public void TestReturnAttributes_RangerLevelUp_ShouldReturnDexterityIncreasedBySevenRestByOne()
@@ -74,6 +83,7 @@ namespace AssignmentRpgTest
             Assert.Equal(expected, actual); 
 
         }
+
         [Fact]
         public void TestReturnAttributes_ArmorAttributesAddedWithOnePiceOfArmor_ShouldReturnIncreaseByOne()
         {
