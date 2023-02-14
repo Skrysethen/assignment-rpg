@@ -25,20 +25,20 @@ namespace assignment_rpg.Heroes
             this.LevelAttributes = addAttribute;
         }
 
-        public override double Damage()
+        public override decimal Damage()
         {
             CalculateTotalAttributes();
-            Item weapon = Equipment[Slot.Weapon];
+            Item? weapon = Equipment[Slot.Weapon];
             if (weapon != null)
             {
                 int weaponDamage = weapon.GetWeaponDamage();
-                Dps = weaponDamage * (1 + (this.TotalAttributes.Dex / 100));
+                Dps = weaponDamage * (1 + (this.TotalAttributes.Dex / (decimal)100));
             }
             else
             {
-                Dps = 1.0;
+                Dps = 1;
             }
-            return Dps;
+            return Decimal.Round(Dps,2);
         }
     }
 }

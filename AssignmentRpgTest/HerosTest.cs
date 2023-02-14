@@ -128,26 +128,45 @@ namespace AssignmentRpgTest
         {
             //Arrange
             MageHero newHero = new MageHero("Gandalf");
-            double expected = 1;
+            decimal expected = 1;
             //Act
-            double actual = newHero.Damage();
+            decimal actual = newHero.Damage();
             //Assert
             Assert.Equal(expected,actual);
         }
         [Fact]
-        public void TestCalculateDamageMage_WeaponEquipped_ShouldReturnOnePointOne()
+        public void TestCalculateDamageMage_WeaponEquipped_ShouldReturnOne()
         {
             //Arrange
             MageHero newHero = new MageHero("Gandalf");
             WeaponItem epicStaff = new WeaponItem("Staff of Jordan", 1, Slot.Weapon, WeponType.Staff, 1);
-            double expected = 1;
+            decimal expected = 1 *(1+(8/(decimal)100));
             //Act
             newHero.Equip(epicStaff);
-            double actual = newHero.Damage();
+            decimal actual = newHero.Damage();
 
             //Assert
             Assert.Equal(expected, actual);
             
+        }
+        [Fact]
+        public void TestCalculateDamageWarrior_WeaponEquippedWithDamageThreeAndArmorWithFiveStrength_SHouldReturnThreePointThree()
+        {
+            //Arrane
+            WarriorHero newHero = new WarriorHero("Conan");
+            HeroAttribute helmAttribute = new HeroAttribute { Str = 3, Dex = 0, Intelligence = 0 };
+            HeroAttribute chestAttribute = new HeroAttribute { Str = 2, Dex = 0, Intelligence = 0 };
+            WeaponItem bigSword = new WeaponItem("Grandfather", 1, Slot.Weapon, WeponType.Sword, 3);
+            ArmorItem fancyHelm = new ArmorItem("Knights hat", 1, Slot.Head, ArmorType.Plate, helmAttribute);
+            ArmorItem fancyChest = new ArmorItem("Knights chest", 1, Slot.Body, ArmorType.Plate, chestAttribute);
+            decimal expected = 3 * (1+(10/(decimal)100));
+            //Act
+            newHero.Equip(fancyHelm);
+            newHero.Equip(fancyChest);
+            newHero.Equip(bigSword);
+            decimal actual = newHero.Damage();
+            //Assert
+            Assert.Equal(expected, actual);
         }
     }
 }

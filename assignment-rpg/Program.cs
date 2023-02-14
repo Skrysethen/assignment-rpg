@@ -9,17 +9,13 @@ namespace assignment_rpg
         {
             Console.WriteLine("Hello, World!");
             MageHero mage = new MageHero("Petter");
+            WarriorHero warrior = new WarriorHero("Conan");
             Console.WriteLine(mage.LevelAttributes.Intelligence);
-            WeaponItem newWeapon = new WeaponItem("common axe", 1, Slot.Weapon, WeponType.Axe, 1);
+            WeaponItem newWeapon = new WeaponItem("common axe", 1, Slot.Weapon, WeponType.Staff, 1);
+
             mage.Equip(newWeapon);
-            foreach(var equipment in mage.Equipment)
-            {
-                if(equipment.Value != null)
-                {
-                    //Hvordan accesse dictonary for å hente ut verdi
-                    Console.WriteLine($"{equipment.Key}: {equipment.Value.Name}");
-                }
-            }
+            Console.WriteLine(mage.Damage());
+            Console.WriteLine(warrior.Damage());
                 
         }
     }

@@ -13,7 +13,7 @@ namespace assignment_rpg.Heroes
     {
         public string Name { get; set; } = string.Empty;
         public int Level { get; set; } = 1;
-        public double Dps { get; set; }
+        public decimal Dps { get; set; }
         public HeroAttribute? LevelAttributes { get; set; }
         public HeroAttribute? TotalAttributes { get; set; } = new HeroAttribute { Str = 0, Dex= 0, Intelligence = 0 };
         public Dictionary<Slot, Item?> Equipment { get; set; } = new Dictionary<Slot, Item?>();
@@ -84,6 +84,6 @@ namespace assignment_rpg.Heroes
             }
         }
 
-        public abstract double Damage();
+        public abstract decimal Damage();
     }
 }
