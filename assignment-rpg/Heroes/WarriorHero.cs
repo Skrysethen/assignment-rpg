@@ -20,10 +20,11 @@ namespace assignment_rpg.Heroes
             ValidWeponTypes.Add(WeponType.Axe.ToString());
         }
 
-        public void WarriorLevelUp(HeroAttribute oldAttributes)
+        public void WarriorLevelUp()
         {
+            HeroAttribute oldAttribute = this.LevelAttributes;
             HeroAttribute newAttributes = new HeroAttribute { Str = 3, Dex = 2, Intelligence = 1};
-            HeroAttribute addAttributes = oldAttributes + newAttributes;
+            HeroAttribute addAttributes = oldAttribute + newAttributes;
             this.Level++;
             this.LevelAttributes = addAttributes;
             

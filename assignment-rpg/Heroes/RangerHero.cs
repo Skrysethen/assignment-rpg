@@ -17,8 +17,9 @@ namespace assignment_rpg.Heroes
             ValidWeponTypes.Add(WeponType.Bow.ToString());
         }
 
-        public void RangerLevelUp(HeroAttribute oldAttribute)
+        public void RangerLevelUp()
         {
+            HeroAttribute oldAttribute = this.LevelAttributes;
             HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 5, Intelligence = 1 };
             HeroAttribute addAttribute = oldAttribute + newAttribute;
             this.Level++;

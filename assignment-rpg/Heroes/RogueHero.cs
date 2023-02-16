@@ -19,9 +19,10 @@ namespace assignment_rpg.Heroes
             ValidWeponTypes.Add(WeponType.Sword.ToString());
         }
 
-        public void RogueLevelUp (HeroAttribute oldAttribute)
+        public void RogueLevelUp ()
         {
             //This method needs to be getRogueHeroLevelUpAttribute
+            HeroAttribute oldAttribute = this.LevelAttributes;
             HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 4, Intelligence = 1 };
             HeroAttribute addAttribute = oldAttribute + newAttribute;
             this.Level++;
