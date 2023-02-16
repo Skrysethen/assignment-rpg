@@ -11,6 +11,7 @@ namespace assignment_rpg.Heroes
     {
         public RogueHero(string name) : base(name)
         {
+            //This method need to be getRogueHero attribute
             this.LevelAttributes = new HeroAttribute { Str = 2, Dex = 6, Intelligence = 1 };
             ValidArmorTypes.Add(ArmorType.Leather.ToString());
             ValidArmorTypes.Add(ArmorType.Mail.ToString());
@@ -20,6 +21,7 @@ namespace assignment_rpg.Heroes
 
         public void RogueLevelUp (HeroAttribute oldAttribute)
         {
+            //This method needs to be getRogueHeroLevelUpAttribute
             HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 4, Intelligence = 1 };
             HeroAttribute addAttribute = oldAttribute + newAttribute;
             this.Level++;

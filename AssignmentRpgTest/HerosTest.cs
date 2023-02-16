@@ -35,6 +35,7 @@ namespace AssignmentRpgTest
             //Arrange
             MageHero newHero = new MageHero("Gandalf");
             HeroAttribute oldAttributes = newHero.LevelAttributes;
+            //12 Intelligence
             HeroAttribute expected = new HeroAttribute { Str = 2, Dex = 2, Intelligence = 13 };
             //Act
             newHero.MageLevelUp(oldAttributes);

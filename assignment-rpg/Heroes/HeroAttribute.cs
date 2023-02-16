@@ -20,6 +20,8 @@ namespace assignment_rpg.Heroes
             return new HeroAttribute { Str = lhs.Str + rhs.Str, Intelligence = lhs.Intelligence + rhs.Intelligence, Dex = lhs.Dex + rhs.Dex };
         }
 
+        //Need to make getters for each hero for lvlup. 
+
         public override bool Equals(object? obj)
         {
             return obj is HeroAttribute attribute &&
