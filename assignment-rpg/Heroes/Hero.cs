@@ -19,9 +19,9 @@ namespace assignment_rpg.Heroes
         public int Level { get; set; } = 1;
         public HeroAttribute? LevelAttributes { get; set; }
         public HeroAttribute? TotalAttributes { get; set; } = new HeroAttribute { Str = 0, Dex= 0, Intelligence = 0 };
-        public Dictionary<Slot, Item?> Equipment { get; set; } = new Dictionary<Slot, Item?>();
-        public List<string> ValidWeponTypes { get; set; } = new List<string>();
-        public List<string> ValidArmorTypes { get; set; } = new List<string>();
+        public Dictionary<Slot, Item?> Equipment { get; private set; } = new Dictionary<Slot, Item?>();
+        public List<string> ValidWeponTypes { get; private set; } = new List<string>();
+        public List<string> ValidArmorTypes { get; private set; } = new List<string>();
 
         public Hero(string name) 
         {
