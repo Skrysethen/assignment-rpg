@@ -5,6 +5,9 @@ using Xunit;
 
 namespace AssignmentRpgTest
 {
+    /// <summary>
+    /// This was the first test class, found out it was much better to make a test file for each subclass of hero.
+    /// </summary>
     public class HerosTest
     {
         [Fact]

@@ -158,7 +158,10 @@ namespace AssignmentRpgTest
         [Fact]
         public void TestRogueHero_ToStringMethod()
         {
-
+            RogueHero rogueHero = new RogueHero("Bilbo");
+            string expected = "Name: Bilbo\nLevel: 1\nTotal Attributes:\n\tStr: 2\n\tDex: 6\n\tInt: 1\nClass: Rogue\nDamage: 1";
+            string actual = rogueHero.ToString();
+            Assert.Equal(expected, actual);
         }
     }
 }

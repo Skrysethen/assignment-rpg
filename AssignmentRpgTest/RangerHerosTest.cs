@@ -158,6 +158,10 @@ namespace AssignmentRpgTest
         [Fact]
         public void TestMageHero_ToStringMethod()
         {
+            RangerHero rangerHero = new RangerHero("Legolas");
+            string expected = "Name: Legolas\nLevel: 1\nTotal Attributes:\n\tStr: 1\n\tDex: 7\n\tInt: 1\nClass: Ranger\nDamage: 1";
+            string actual = rangerHero.ToString();
+            Assert.Equal(expected, actual);
 
         }
 

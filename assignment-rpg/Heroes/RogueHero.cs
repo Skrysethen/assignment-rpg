@@ -54,7 +54,7 @@ namespace assignment_rpg.Heroes
         {
             string rogue = "Rogue";
 
-            return base.ToString() + "Class: " + rogue;
+            return base.ToString() + "Class: " + rogue + "\nDamage: " + Damage().ToString();
         }
     }
 }

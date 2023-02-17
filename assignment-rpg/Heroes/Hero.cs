@@ -96,12 +96,9 @@ namespace assignment_rpg.Heroes
             StringBuilder sb = new StringBuilder();
             sb.Append("Name: " + Name+ "\n");
             sb.Append("Level: " + Level + "\n");
-            sb.Append("Attributes:\n\t Str: " + LevelAttributes.Str + "\n");
-            sb.Append("\t Dex: " + LevelAttributes.Dex+ "\n");
-            sb.Append("\t Int: " + LevelAttributes.Intelligence + "\n");
-            sb.Append("Total Attributes:\n\t Str: " + TotalAttributes.Str + "\n");
-            sb.Append("\t Dex: " + TotalAttributes.Dex + "\n");
-            sb.Append("\t Int: " + TotalAttributes.Intelligence + "\n");
+            sb.Append("Total Attributes:\n\tStr: " + TotalAttributes.Str + "\n");
+            sb.Append("\tDex: " + TotalAttributes.Dex + "\n");
+            sb.Append("\tInt: " + TotalAttributes.Intelligence + "\n");
 
 
             return sb.ToString();

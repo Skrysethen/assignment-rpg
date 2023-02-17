@@ -51,7 +51,7 @@ namespace assignment_rpg.Heroes
         public override string ToString()
         {
             string ranger = "Ranger";
-            return base.ToString() + "Class: " + ranger;
+            return base.ToString() + "Class: " + ranger + "\nDamage: " + Damage().ToString();
         }
     }
 }

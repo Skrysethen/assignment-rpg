@@ -127,7 +127,7 @@ namespace AssignmentRpgTest
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void TestWarriorHeroDamage_WithStrNoArmorEquipped_WeaponEquippedWithOneDamage_ShouldReturnOnePointZeroEight()
+        public void TestWarriorHeroDamage_WithStrNoArmorEquipped_WeaponEquippedWithOneDamage_ShouldReturnOnePointZeroFive()
         {
             WarriorHero warriorHero = new WarriorHero("Conan");
             WeaponItem sword = new WeaponItem("Grandfather", 1, Slot.Weapon, WeponType.Sword, 1);
@@ -140,7 +140,7 @@ namespace AssignmentRpgTest
         }
 
         [Fact]
-        public void TestWarriorHeroDamage_WithArmorEquippedWithTwoStr_WeaponWithOneDamage_ShouldReturnOnePointOne()
+        public void TestWarriorHeroDamage_WithArmorEquippedWithTwoStr_WeaponWithOneDamage_ShouldReturnOnePointZeroSeven()
         {
             WarriorHero warriorHero = new WarriorHero("Conan");
             HeroAttribute armorModifier = new HeroAttribute { Str = 2, Dex = 0, Intelligence = 0 };
@@ -157,6 +157,10 @@ namespace AssignmentRpgTest
         [Fact]
         public void TestWarriorHero_ToStringMethod()
         {
+            WarriorHero warriorHero = new WarriorHero("Conan");
+            string expected = "Name: Conan\nLevel: 1\nTotal Attributes:\n\tStr: 5\n\tDex: 2\n\tInt: 1\nClass: Warrior\nDamage: 1";
+            string actual = warriorHero.ToString();
+            Assert.Equal(expected, actual);
 
         }
     }
