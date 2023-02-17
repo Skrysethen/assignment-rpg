@@ -85,10 +85,8 @@ namespace assignment_rpg.Heroes
         }
 
         public abstract decimal Damage();
-        
-        //Needs to add an abstract class for lvlup
 
-        public  void levelUp() { Level++; }
+        public abstract void LevelUp(); 
 
         //Needs to add tostring method and test it
     }

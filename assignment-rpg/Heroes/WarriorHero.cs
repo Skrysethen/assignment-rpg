@@ -12,7 +12,7 @@ namespace assignment_rpg.Heroes
     {
         public WarriorHero(string name) : base(name)
         {
-            this.LevelAttributes = new HeroAttribute { Str = 5, Dex = 2, Intelligence = 1 };
+            this.LevelAttributes = HeroAttribute.GetWarriorAttributes();
             ValidArmorTypes.Add(ArmorType.Mail.ToString());
             ValidArmorTypes.Add(ArmorType.Plate.ToString());
             ValidWeponTypes.Add(WeponType.Sword.ToString());
@@ -20,10 +20,10 @@ namespace assignment_rpg.Heroes
             ValidWeponTypes.Add(WeponType.Axe.ToString());
         }
 
-        public void WarriorLevelUp()
+        public override void LevelUp()
         {
             HeroAttribute oldAttribute = this.LevelAttributes;
-            HeroAttribute newAttributes = new HeroAttribute { Str = 3, Dex = 2, Intelligence = 1};
+            HeroAttribute newAttributes = HeroAttribute.GetWarriorLevelUpAttributes();
             HeroAttribute addAttributes = oldAttribute + newAttributes;
             this.Level++;
             this.LevelAttributes = addAttributes;

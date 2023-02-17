@@ -12,18 +12,18 @@ namespace assignment_rpg.Heroes
         public RogueHero(string name) : base(name)
         {
             //This method need to be getRogueHero attribute
-            this.LevelAttributes = new HeroAttribute { Str = 2, Dex = 6, Intelligence = 1 };
+            this.LevelAttributes = HeroAttribute.GetRogueAttributes();
             ValidArmorTypes.Add(ArmorType.Leather.ToString());
             ValidArmorTypes.Add(ArmorType.Mail.ToString());
             ValidWeponTypes.Add(WeponType.Dagger.ToString());
             ValidWeponTypes.Add(WeponType.Sword.ToString());
         }
 
-        public void RogueLevelUp ()
+        public override void LevelUp()
         {
             //This method needs to be getRogueHeroLevelUpAttribute
             HeroAttribute oldAttribute = this.LevelAttributes;
-            HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 4, Intelligence = 1 };
+            HeroAttribute newAttribute = HeroAttribute.GetRogueLevelUpAttributes();
             HeroAttribute addAttribute = oldAttribute + newAttribute;
             this.Level++;
             this.LevelAttributes = addAttribute;

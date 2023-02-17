@@ -24,7 +24,7 @@ namespace AssignmentRpgTest
             RogueHero newHero = new RogueHero("Bilbo");
             HeroAttribute attribute = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 1};
             int expected = 2;
-            newHero.RogueLevelUp(attribute);
+            newHero.LevelUp();
             int actual = newHero.Level;
             Assert.Equal(expected, actual);
         }
@@ -38,7 +38,7 @@ namespace AssignmentRpgTest
             //12 Intelligence
             HeroAttribute expected = new HeroAttribute { Str = 2, Dex = 2, Intelligence = 13 };
             //Act
-            newHero.MageLevelUp(oldAttributes);
+            newHero.LevelUp();
             HeroAttribute actual = newHero.LevelAttributes;
             //Assert
             Assert.Equal(expected, actual);
@@ -51,7 +51,7 @@ namespace AssignmentRpgTest
             HeroAttribute oldAttributes = newHero.LevelAttributes;
             HeroAttribute expected = new HeroAttribute { Str = 2, Dex = 12, Intelligence = 2 };
             //Act
-            newHero.RangerLevelUp(oldAttributes);
+            newHero.LevelUp();
             HeroAttribute actual = newHero.LevelAttributes;
             //Assert
             Assert.Equal(expected, actual);
@@ -66,7 +66,7 @@ namespace AssignmentRpgTest
             HeroAttribute oldAttributes = newHero.LevelAttributes;
             HeroAttribute expected = new HeroAttribute { Str = 3, Dex = 10, Intelligence = 2 };
             //Act
-            newHero.RogueLevelUp(oldAttributes);
+            newHero.LevelUp();
             HeroAttribute actual = newHero.LevelAttributes;
             //Assert
             Assert.Equal(expected, actual);
@@ -80,7 +80,7 @@ namespace AssignmentRpgTest
             HeroAttribute oldAttributes = newHero.LevelAttributes;
             HeroAttribute expected = new HeroAttribute { Str = 8, Dex = 4, Intelligence = 2 };
             //Act
-            newHero.WarriorLevelUp(oldAttributes);
+            newHero.LevelUp();
             HeroAttribute actual = newHero.LevelAttributes;
             //Assert
             Assert.Equal(expected, actual); 

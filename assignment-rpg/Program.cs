@@ -16,6 +16,7 @@ namespace assignment_rpg
             mage.Equip(newWeapon);
             Console.WriteLine(mage.Damage());
             Console.WriteLine(warrior.Damage());
+            
                 
         }
     }

@@ -11,16 +11,16 @@ namespace assignment_rpg.Heroes
     {
         public RangerHero(string name) : base(name)
         {
-            this.LevelAttributes = new HeroAttribute { Str = 1, Dex = 7, Intelligence = 1 };
+            this.LevelAttributes = HeroAttribute.GetRangerAttributes();
             ValidArmorTypes.Add(ArmorType.Leather.ToString());
             ValidArmorTypes.Add(ArmorType.Mail.ToString());
             ValidWeponTypes.Add(WeponType.Bow.ToString());
         }
 
-        public void RangerLevelUp()
+        public override void LevelUp()
         {
             HeroAttribute oldAttribute = this.LevelAttributes;
-            HeroAttribute newAttribute = new HeroAttribute { Str = 1, Dex = 5, Intelligence = 1 };
+            HeroAttribute newAttribute = HeroAttribute.GetRangerLevelUpAttributes();
             HeroAttribute addAttribute = oldAttribute + newAttribute;
             this.Level++;
             this.LevelAttributes = addAttribute;

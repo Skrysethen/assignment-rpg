@@ -13,17 +13,17 @@ namespace assignment_rpg.Heroes
         public MageHero(string name) : base(name)
         {
 
-            this.LevelAttributes = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 8 };
+            this.LevelAttributes = HeroAttribute.GetMageAttributes();
             ValidArmorTypes.Add(ArmorType.Cloth.ToString());
             ValidWeponTypes.Add(WeponType.Wand.ToString());
             ValidWeponTypes.Add(WeponType.Staff.ToString());
 
         }
 
-        public void MageLevelUp()
+        public override void LevelUp()
         {
             HeroAttribute oldAttributes = LevelAttributes;
-            HeroAttribute newAttributes = new HeroAttribute { Str = 1, Dex = 1, Intelligence = 5 };
+            HeroAttribute newAttributes = HeroAttribute.GetMageLevelUpAttributes();
             HeroAttribute addedAttributes = newAttributes + oldAttributes;
             this.Level++;
             this.LevelAttributes = addedAttributes;
