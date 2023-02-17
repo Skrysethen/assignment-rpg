@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
+    /// <summary>
+    /// Parent class for ArmorItem and WeaponItem, holds the shared attributes for armor and weapon items.
+    /// GetWeponType -> Gives access to the weapontype from the item class.
+    /// GetArmorType -> Gives access to the armortype from the item class.
+    /// GetArmorAttribute -> Gets the armor modifier.
+    /// GetWeaponDamage -> Gets the weapon damage.
+    /// </summary>
     public abstract class Item
     {
         public string Name { get; set; }

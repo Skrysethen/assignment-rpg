@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Heroes
 {
+    /// <summary>
+    /// Parent class for the Hero.
+    /// Includes all the shared attributes for the subclasses and the shared methods for the subclasses.
+    /// </summary>
     public abstract class Hero
     {
         public string Name { get; set; } = string.Empty;
         public int Level { get; set; } = 1;
-        public decimal Dps { get; set; }
         public HeroAttribute? LevelAttributes { get; set; }
         public HeroAttribute? TotalAttributes { get; set; } = new HeroAttribute { Str = 0, Dex= 0, Intelligence = 0 };
         public Dictionary<Slot, Item?> Equipment { get; set; } = new Dictionary<Slot, Item?>();
@@ -28,7 +31,8 @@ namespace assignment_rpg.Heroes
             Equipment.Add(Slot.Body, null);
             Equipment.Add(Slot.Legs, null);
         }
-
+        //Equip -> This method equips items on the hero if the class can wear the item or weapon. 
+        //If the hero cant wear the item an exeption will be trown, either InvalidArmorExeption or InvalidWeaponExeption
         public void Equip(Item item)
         {
             int ItemLevel = item.ReqLevel;
@@ -68,7 +72,7 @@ namespace assignment_rpg.Heroes
             }
 
         }
-
+        //CalculateTotalAttributes -> checks if the equipment is armor and if it is the heroAttribute will be added to totalAttributes
         public void CalculateTotalAttributes()
         {
             this.TotalAttributes = this.LevelAttributes;
@@ -83,11 +87,25 @@ namespace assignment_rpg.Heroes
                 }
             }
         }
-
+        //Damage -> Checks if the hero are wearing a weapon if weapon is equipped then the damage will be calculated with the formula
+        //else the damage is set to one.
         public abstract decimal Damage();
+        public abstract void LevelUp();
+        public virtual string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Name: " + Name+ "\n");
+            sb.Append("Level: " + Level + "\n");
+            sb.Append("Attributes:\n\t Str: " + LevelAttributes.Str + "\n");
+            sb.Append("\t Dex: " + LevelAttributes.Dex+ "\n");
+            sb.Append("\t Int: " + LevelAttributes.Intelligence + "\n");
+            sb.Append("Total Attributes:\n\t Str: " + TotalAttributes.Str + "\n");
+            sb.Append("\t Dex: " + TotalAttributes.Dex + "\n");
+            sb.Append("\t Int: " + TotalAttributes.Intelligence + "\n");
 
-        public abstract void LevelUp(); 
 
-        //Needs to add tostring method and test it
+            return sb.ToString();
+        }
+
     }
 }

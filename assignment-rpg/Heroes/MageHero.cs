@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Heroes
 {
+    /// <summary>
+    /// The constructor takes in a name, sets the starting attributes for mage, valid armortypes and valid weapontypes.
+    /// LevelUp -> Increment the hero level by one and adding attributes to Level attributes.
+    /// Damage -> Calculates the damage for the mage, modifier for mage Int.
+    /// ToString -> Prints out the character sheet for the hero.
+    /// </summary>
     public class MageHero : Hero
     {
         public MageHero(string name) : base(name)
         {
 
             this.LevelAttributes = HeroAttribute.GetMageAttributes();
+            this.TotalAttributes = this.LevelAttributes;
             ValidArmorTypes.Add(ArmorType.Cloth.ToString());
             ValidWeponTypes.Add(WeponType.Wand.ToString());
             ValidWeponTypes.Add(WeponType.Staff.ToString());
@@ -30,23 +37,28 @@ namespace assignment_rpg.Heroes
             
 
         }
-
         public override decimal Damage()
         {
             CalculateTotalAttributes();
-            
+            decimal dps = 0;
             Item weapon = Equipment[Slot.Weapon];
             if (weapon != null)
             {
+                //Use decimal for the capability to round the output to 2 decimals
                 decimal weaponDamage = weapon.GetWeaponDamage();
                 decimal attributeModifier = 1 + (this.TotalAttributes.Intelligence / (decimal)100);
-                Dps = weaponDamage * (attributeModifier);
+                dps = weaponDamage * (attributeModifier);
             }
             else
             {
-                Dps = 1;
+                dps = 1;
             }
-            return Decimal.Round(Dps,2);
+            return Decimal.Round(dps,2);
+        }
+        public override string ToString()
+        {
+            string mage = "Mage";
+            return base.ToString() + "Class: " + mage;
         }
     }
 }

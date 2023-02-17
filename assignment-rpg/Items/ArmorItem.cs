@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
+    /// <summary>
+    /// Child class of Item. 
+    /// The constructor takes in name, reqLevel, Slot type, armor class, armor attribute.
+    /// Includes GetWeaponType -> This will Throw NotImplementedExeption.
+    /// Includes GetWeaponDamage -> This will Throw NotImplementedExeption.
+    /// </summary>
     public class ArmorItem : Item
     {
 
@@ -23,12 +29,10 @@ namespace assignment_rpg.Items
         {
             return ArmorClass;
         }
-
         public override HeroAttribute GetArmorAttribute()
         {
             return ArmorAttribute;
         }
-
         public override WeponType GetWeponType()
         {
             throw new NotImplementedException();

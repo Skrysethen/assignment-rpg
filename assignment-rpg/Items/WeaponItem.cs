@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Items
 {
+    /// <summary>
+    /// Child class of Item.
+    /// Includes GetArmorType -> This will Throw NotImplementedExeption
+    /// Includes GetArmorAttribute -> This will Throw NotImplementedExeption
+    /// </summary>
     public class WeaponItem : Item
     {
 

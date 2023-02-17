@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace assignment_rpg.Heroes
 {
+    /// <summary>
+    /// The constructor takes in a name, sets the attributes for the ranger, and adds the valid armor types and weapon types.
+    /// LevelUp -> Increments the level of hero by one and adding to the level attributes
+    /// Damage -> Calculates the damage of the hero, modifier is Dex
+    /// ToString -> Outputs the character sheet for the hero
+    /// </summary>
     public class RangerHero : Hero
     {
         public RangerHero(string name) : base(name)
         {
             this.LevelAttributes = HeroAttribute.GetRangerAttributes();
+            this.TotalAttributes = this.LevelAttributes;
             ValidArmorTypes.Add(ArmorType.Leather.ToString());
             ValidArmorTypes.Add(ArmorType.Mail.ToString());
             ValidWeponTypes.Add(WeponType.Bow.ToString());
@@ -25,21 +32,26 @@ namespace assignment_rpg.Heroes
             this.Level++;
             this.LevelAttributes = addAttribute;
         }
-
         public override decimal Damage()
         {
             CalculateTotalAttributes();
+            decimal dps = 0;
             Item? weapon = Equipment[Slot.Weapon];
             if (weapon != null)
             {
                 int weaponDamage = weapon.GetWeaponDamage();
-                Dps = weaponDamage * (1 + (this.TotalAttributes.Dex / (decimal)100));
+                dps = weaponDamage * (1 + (this.TotalAttributes.Dex / (decimal)100));
             }
             else
             {
-                Dps = 1;
+                dps = 1;
             }
-            return Decimal.Round(Dps,2);
+            return Decimal.Round(dps,2);
+        }
+        public override string ToString()
+        {
+            string ranger = "Ranger";
+            return base.ToString() + "Class: " + ranger;
         }
     }
 }

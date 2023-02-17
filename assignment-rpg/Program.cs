@@ -10,12 +10,14 @@ namespace assignment_rpg
             Console.WriteLine("Hello, World!");
             MageHero mage = new MageHero("Petter");
             WarriorHero warrior = new WarriorHero("Conan");
+            RogueHero rogue = new RogueHero("Bilbo");
             Console.WriteLine(mage.LevelAttributes.Intelligence);
             WeaponItem newWeapon = new WeaponItem("common axe", 1, Slot.Weapon, WeponType.Staff, 1);
 
             mage.Equip(newWeapon);
             Console.WriteLine(mage.Damage());
             Console.WriteLine(warrior.Damage());
+            Console.WriteLine(rogue.ToString());
             
                 
         }
